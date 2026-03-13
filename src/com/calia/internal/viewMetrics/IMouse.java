@@ -1,4 +1,4 @@
-package calia.internal.viewMetrics;
+package com.calia.internal.viewMetrics;
 
 public interface IMouse {
     int getVirtualMouseX();
