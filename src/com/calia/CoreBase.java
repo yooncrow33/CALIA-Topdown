@@ -108,9 +108,9 @@ abstract class CoreBase extends JPanel implements IFrameSize {
             double deltaTime = (now - lastTime) / 1_000_000_000.0; // 초 단위
             lastTime = now;
 
-            SwingUtilities.invokeLater(this::repaint);
-
             internalUpdate(deltaTime);
+
+            SwingUtilities.invokeLater(this::repaint);
 
 
         }, 0, 16, TimeUnit.MILLISECONDS);

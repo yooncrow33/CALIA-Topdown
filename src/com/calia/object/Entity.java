@@ -67,6 +67,14 @@ public abstract class Entity {
         return config;
     }
 
+    public void setVx(double vx) {
+        this.vx = vx;
+    }
+
+    public void setVy(double vy) {
+        this.vy = vy;
+    }
+
     public void EntityUpdate(double delta) {
         double dt = delta / (16.0 / 1000.0);
 
