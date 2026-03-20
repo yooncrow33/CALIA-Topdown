@@ -1,10 +1,8 @@
 package com.calia.internal.test
 
 import com.calia.CaliaBase
-import com.calia.internal.viewMetrics.IMouse
+import com.calia.internal.`object`.viewMetrics.IMouse
 import java.awt.Graphics
-import java.awt.Graphics2D
-import java.awt.RenderingHints
 
 
 class Main(profileId : Int) : CaliaBase("physics test",19200,10800), IMouse {

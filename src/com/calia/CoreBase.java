@@ -1,7 +1,7 @@
 package com.calia;
 
-import com.calia.internal.viewMetrics.IFrameSize;
-import com.calia.internal.viewMetrics.ViewMetrics;
+import com.calia.internal.object.viewMetrics.IFrameSize;
+import com.calia.internal.object.viewMetrics.ViewMetrics;
 
 import javax.swing.*;
 import java.awt.*;

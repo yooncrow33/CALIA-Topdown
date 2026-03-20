@@ -1,4 +1,4 @@
-package com.calia.internal.viewMetrics;
+package com.calia.internal.object.viewMetrics;
 
 public interface IViewMetrics {
     int getWindowWidth();
