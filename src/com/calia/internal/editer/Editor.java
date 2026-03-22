@@ -1,5 +1,7 @@
 package com.calia.internal.editer;
 
+import com.calia.internal.base.CALIA;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
@@ -394,10 +396,15 @@ public class Editor {
 
             // 실제 파일(editorData.calia 및 Basic/config.calia) 생성 강제 실행
             saveAllConfigs();
+
+            int i = CALIA.PHYSICS;
         }
     }
 
     public static void main(String[] args) {
+        System.out.println("엔진 설정 로딩 시작...");
+        System.out.println("설정 이름: " + CALIA.CONFIG_NAME);
+        System.out.println("엔진 설정 로딩 완료.");
         SwingUtilities.invokeLater(Editor::new);
     }
 }

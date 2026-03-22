@@ -1,6 +1,7 @@
 package com.calia.internal.base;
 
 import com.calia.GameComponent;
+import com.calia.internal.base.CALIA;
 import com.calia.object.Camera;
 import com.calia.object.Entity;
 
@@ -12,7 +13,7 @@ public class TopDownBase extends CoreBase {
     final int WORLD_WIDTH;
     final int WORLD_HEIGHT;
 
-    public TopDownBase(CALIA Calia,String title, int worldWidth, int worldHeight) {
+    public TopDownBase(CALIA Calia, String title, int worldWidth, int worldHeight) {
         super(title);
         this.WORLD_WIDTH = worldWidth;
         this.WORLD_HEIGHT = worldHeight;

@@ -103,20 +103,38 @@ abstract class CoreBase extends JPanel implements IFrameSize {
     private void startGameLoop() {
         runnung = true;
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+        // 1. CALIA.FPS 문자열에서 숫자만 추출 (예: "60 FPS" -> 60)
+        int fpsValue = 60; // 기본값
+        try {
+            fpsValue = Integer.parseInt(CALIA.FPS.replace(" FPS", "").trim());
+        } catch (Exception e) {
+            System.err.println("FPS parsing error, defaulting to 60");
+        }
+
+        // 2. 주기를 나노초 단위로 계산 (1초 / FPS)
+        // 1초 = 1,000,000,000 나노초
+        long period = 1_000_000_000L / fpsValue;
+
         lastTime = System.nanoTime();
 
+        // 3. 계산된 period(나노초)를 주기로 설정
         executor.scheduleAtFixedRate(() -> {
-            if (!runnung) { executor.shutdown(); return; }
+            if (!runnung) {
+                executor.shutdown();
+                return;
+            }
+
             long now = System.nanoTime();
-            double deltaTime = (now - lastTime) / 1_000_000_000.0; // 초 단위
+            double deltaTime = (now - lastTime) / 1_000_000_000.0;
             lastTime = now;
 
             internalUpdate(deltaTime);
 
+            // 렌더링은 Swing 쓰레드에서 처리
             SwingUtilities.invokeLater(this::repaint);
 
-
-        }, 0, 16, TimeUnit.MILLISECONDS);
+        }, 0, period, TimeUnit.NANOSECONDS);
     }
 
     protected abstract void internalUpdate(double deltaTime);

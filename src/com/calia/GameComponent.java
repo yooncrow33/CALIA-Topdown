@@ -1,6 +1,5 @@
 package com.calia;
 
-import com.calia.internal.base.CALIA;
 
 import java.awt.*;
 
